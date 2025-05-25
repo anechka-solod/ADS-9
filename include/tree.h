@@ -5,7 +5,7 @@
 #include <vector>
 
 class TreeNode {
-public:
+ public:
     char value;
     std::vector<TreeNode*> children;
 
@@ -16,14 +16,14 @@ public:
 };
 
 class PMTree {
-private:
+ private:
     TreeNode* root;
 
     void build(TreeNode* node, std::vector<char> remaining);
     void collect(TreeNode* node, std::vector<char>& path, std::vector<std::vector<char>>& result);
     std::vector<char> getPermByIndex(TreeNode* node, int& index, int target);
 
-public:
+ public:
     PMTree(const std::vector<char>& in);
     ~PMTree();
 
