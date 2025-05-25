@@ -1,8 +1,7 @@
 // Copyright 2022 NNTU-CS
 #include <iostream>
-#include <algorithm>
-#include <iterator>
-#include <vector>
+#include <chrono>
+#include <random>
 #include "tree.h"
 
 int main() {
