@@ -38,7 +38,7 @@ void PMTree::collect(TreeNode* node, std::vector<char>& path,
 std::vector<std::vector<char>>& result) {
   if (node->value != 0)
     path.push_back(node->value);
-  if (node->children.empty()){
+  if (node->children.empty()) {
         result.push_back(path);
   } else {
     for (auto child : node->children)
