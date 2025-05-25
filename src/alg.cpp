@@ -3,9 +3,11 @@
 #include  <fstream>
 #include  <locale>
 #include  <cstdlib>
+#include <vector>
 #include <algorithm>
 #include  "tree.h"
 
+using namespace std;
 TreeNode::TreeNode(char val) : value(val) {}
 TreeNode::~TreeNode() {
   for (auto child : children)
@@ -33,7 +35,7 @@ void PMTree::build(TreeNode* node, std::vector<char> remaining) {
   }
 }
 
-void PMTree::collect(TreeNode* node, std::vector<char>& path, std::vector<std::vector<char>>& result) {
+void PMTree::collect(TreeNode* node, vector<char>& path, vector<vector<char>>& result) {
   if (node->value != 0)
     path.push_back(node->value);
   if (node->children.empty()){
@@ -46,22 +48,22 @@ void PMTree::collect(TreeNode* node, std::vector<char>& path, std::vector<std::v
     path.pop_back();
 }
 
-std::vector<std::vector<char>> getAllPerms(PMTree& tree) {
-  std::vector<std::vector<char>> result;
-  std::vector<char> path;
+vector<vector<char>> getAllPerms(PMTree& tree) {
+  vector<vector<char>> result;
+  vector<char> path;
   tree.collect(tree.root, path, result);
   return result;
 }
 
-std::vector<char> getPerm1(PMTree& tree, int num) {
+vector<char> getPerm1(PMTree& tree, int num) {
   auto perms = getAllPerms(tree);
-  return (num > 0 && num <= perms.size()) ? perms[num - 1] : std::vector<char>{};
+  return (num > 0 && num <= perms.size()) ? perms[num - 1] : vector<char>{};
 }
 
-std::vector<char> PMTree::getPermByIndex(TreeNode* node, int& index, int target) {
+vector<char> PMTree::getPermByIndex(TreeNode* node, int& index, int target) {
   if (node->children.empty()) {
     ++index;
-    return (index == target) ? std::vector<char>{node->value} : std::vector<char>{};
+    return (index == target) ? std::vector<char>{node->value} : vector<char>{};
   }
 
   for (auto child : node->children) {
@@ -75,7 +77,7 @@ std::vector<char> PMTree::getPermByIndex(TreeNode* node, int& index, int target)
   return {};
 }
 
-std::vector<char> getPerm2(PMTree& tree, int num) {
+vector<char> getPerm2(PMTree& tree, int num) {
   int index = 0;
   return tree.getPermByIndex(tree.root, index, num);
 }
