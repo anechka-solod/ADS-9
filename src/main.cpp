@@ -6,7 +6,7 @@
 #include "tree.h"
 
 int main() {
-  std::vector<char> input = { '1', '2','3','4','5','6' };
+  std::vector<char> input = { '1', '2', '3', '4', '5', '6' };
   PMTree tree(input);
   auto start = std::chrono::high_resolution_clock::now();
   auto perms = getAllPerms(tree);
