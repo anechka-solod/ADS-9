@@ -35,7 +35,7 @@ void PMTree::build(TreeNode* node, std::vector<char> remaining) {
 }
 
 void PMTree::collect(TreeNode* node,
-std::vector<char>& path, std::vector<vector<char>>& result) {
+std::vector<char>& path, std::vector<std::vector<char>>& result) {
   if (node->value != 0)
     path.push_back(node->value);
   if (node->children.empty()) {
@@ -82,4 +82,3 @@ std::vector<char> getPerm2(PMTree& tree, int num) {
   int index = 0;
   return tree.getPermByIndex(tree.root, index, num);
 }
-
