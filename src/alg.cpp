@@ -64,7 +64,7 @@ std::vector<char> PMTree::getPermByIndex(TreeNode* node,
 int& index, int target) {
   if (node->children.empty()) {
     ++index;
-    return (index == target) ? std::vector<char>{node->value} : vector<char>{};
+    return (index == target) ? std::vector<char>{node->value} : std::vector<char>{};
   }
 
   for (auto child : node->children) {
