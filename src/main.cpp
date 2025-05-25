@@ -12,7 +12,7 @@ int main() {
   auto perms = getAllPerms(tree);
   auto end = std::chrono::high_resolution_clock::now();
   std::cout << "getAllPerms time: "
-    << std::chrono::duration<double, std::milli>(end - start).count() << "ms\n"
+    << std::chrono::duration<double, std::milli>(end - start).count() << "ms\n";
   std::random_device rd;
   std::mt19937 gen(rd());
   std::uniform_int_distribution<> dist(1, perms.size());
